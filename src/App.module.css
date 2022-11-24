@@ -1,0 +1,42 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.appContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.wytaContainer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  width: 30rem;
+  height: 15rem;
+  border: white 4px dashed;
+  background: #2D2D30;
+  color: #2D2D30;
+}
+
+.input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.icondiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 15.5rem;
+}
