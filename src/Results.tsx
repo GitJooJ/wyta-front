@@ -30,9 +30,28 @@ const labels = [
   'Palavra 8',
   'Palavra 9',
   'Palavra 10',
+  'Palavra 11',
+  'Palavra 12',
+  'Palavra 13',
+  'Palavra 14',
+  'Palavra 15',
+  'Palavra 16',
+  'Palavra 17',
+  'Palavra 18',
+  'Palavra 19',
+  'Palavra 20',
 ];
 const results = [
-  //10 random numbers
+  Math.floor(Math.random() * 100),
+  Math.floor(Math.random() * 100),
+  Math.floor(Math.random() * 100),
+  Math.floor(Math.random() * 100),
+  Math.floor(Math.random() * 100),
+  Math.floor(Math.random() * 100),
+  Math.floor(Math.random() * 100),
+  Math.floor(Math.random() * 100),
+  Math.floor(Math.random() * 100),
+  Math.floor(Math.random() * 100),
   Math.floor(Math.random() * 100),
   Math.floor(Math.random() * 100),
   Math.floor(Math.random() * 100),
@@ -51,7 +70,7 @@ export const data = {
     {
       label: 'Número de Usos',
       data: results,
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      backgroundColor: 'rgba(33, 255, 132, 0.5)',
     },
   ]
 };
@@ -64,7 +83,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'As 10 Palavras mais utilizadas',
+      text: 'As 20 Palavras mais utilizadas',
     },
   },
 };
