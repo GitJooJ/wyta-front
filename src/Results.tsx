@@ -1,14 +1,11 @@
-import globalStyles from './App.module.css';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
+  BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title,
+  Tooltip
 } from 'chart.js';
+import { useContext } from 'react';
 import { Bar } from 'react-chartjs-2';
+import globalStyles from './Input.module.css';
+import { ResultContext, ResultContextType } from './ResultProvider';
 
 ChartJS.register(
   CategoryScale,
@@ -19,52 +16,17 @@ ChartJS.register(
   Legend
 );
 
-const labels = [
-  'Palavra 1',
-  'Palavra 2',
-  'Palavra 3',
-  'Palavra 4',
-  'Palavra 5',
-  'Palavra 6',
-  'Palavra 7',
-  'Palavra 8',
-  'Palavra 9',
-  'Palavra 10',
-  'Palavra 11',
-  'Palavra 12',
-  'Palavra 13',
-  'Palavra 14',
-  'Palavra 15',
-  'Palavra 16',
-  'Palavra 17',
-  'Palavra 18',
-  'Palavra 19',
-  'Palavra 20',
-];
-const results = [
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-  Math.floor(Math.random() * 100),
-];
 
-export const data = {
+export function ResultsPage() {
+  const { state } = useContext(ResultContext) as ResultContextType;
+  if (!state.results) {
+    return <div>Carregando...</div>;
+  }
+  const labels = state.results.top_words.map((word) => word.word);
+
+  const results = state.results.top_words.map((word) => word.count);
+
+ const data = {
   labels,
   datasets: [
     {
@@ -75,7 +37,7 @@ export const data = {
   ]
 };
 
-export const options = {
+ const options = {
   responsive: true,
   plugins: {
     legend: {
@@ -88,7 +50,6 @@ export const options = {
   },
 };
 
-export function ResultsPage() {
 
   return (
     <div className={globalStyles.appContainer}>
