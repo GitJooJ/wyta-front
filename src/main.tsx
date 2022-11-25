@@ -1,12 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
+import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
-  RouterProvider,
+  RouterProvider
 } from 'react-router-dom';
-import './index.css'
-import {ResultsPage} from "./Results";
+import './index.css';
+import App from './Input';
+import { ResultProvider } from './ResultProvider';
+import { ResultsPage } from "./Results";
 
 const router = createBrowserRouter([
   {
@@ -20,5 +20,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <RouterProvider router={router} />
+  <ResultProvider >
+    <RouterProvider router={router} />
+  </ResultProvider>
 )
